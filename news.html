@@ -1,0 +1,650 @@
+<!--Template Name: vacayhome
+File Name: news.html
+Author Name: ThemeVault
+Author URI: http://www.themevault.net/
+License URI: http://www.themevault.net/license/-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/icons/Brow.png" />
+    <title>AmirthamHolidayHome | Features</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="font-awesome/css/font-awesome.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="fonts/antonio-exotic/stylesheet.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/lightbox.min.css" />
+    <link href="css/responsive.css" rel="stylesheet" />
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script
+      src="js/lightbox-plus-jquery.min.js"
+      type="text/javascript"
+    ></script>
+    <script src="js/instafeed.min.js" type="text/javascript"></script>
+    <script src="js/custom.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  </head>
+  <style>
+    .section__container {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 5rem 1rem;
+    }
+
+    /* scroll */
+
+    .explore__container {
+      padding-block: 0;
+      margin: 30px;
+      display: grid;
+      gap: 2rem;
+      /* background-color: #ece8f7; */
+      background-color: var(--extra-light);
+      border-radius: 2rem;
+      overflow-y: hidden;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .explore__content {
+      padding-block: 5rem;
+      display: grid;
+      place-content: center;
+    }
+
+    .explore__wrapper {
+      display: none;
+    }
+
+    .explore__content .section__header {
+      margin-bottom: 2rem;
+      font-weight: 1000;
+      font-size: 40px;
+      text-align: left;
+    }
+
+    /* 
+@media only screen and (max-width: 767px) {
+    #text{
+        font-size: 5px;
+        padding: 0px;
+        margin: 0px;
+    }
+} */
+
+    @media (width > 768px) {
+      .explore__container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .explore__content {
+        padding-block: 10rem;
+      }
+
+      .explore__wrapper {
+        display: block;
+        position: relative;
+        isolation: isolate;
+      }
+
+      .explore__wrapper-inner {
+        position: absolute;
+        width: 100%;
+        display: grid;
+        gap: 1rem;
+        animation: scroll 15s linear infinite;
+      }
+
+      .explore__wrapper-inner img {
+        max-width: 350px;
+        margin-inline: auto;
+        border-radius: var(--border-radius);
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      @keyframes scroll {
+        to {
+          transform: translateY(calc(-50% - 0.5rem));
+        }
+      }
+    }
+    /* Make image & text side-by-side on desktop, stacked neatly on mobile */
+    @media (max-width: 767px) {
+      .resort-overview-block .col-md-6 {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        margin-bottom: 2rem; /* Add spacing between blocks */
+      }
+
+      .side-A,
+      .side-B {
+        width: 100%;
+        float: none;
+        display: block;
+        text-align: center;
+      }
+
+      .side-B .product-desc-side {
+        padding-top: 1rem; /* small spacing between image & text */
+      }
+
+      .product-desc-side h3 {
+        font-size: 20px; /* slightly smaller for mobile */
+      }
+
+      .product-desc-side p {
+        font-size: 14px; /* more readable on mobile */
+      }
+    }
+    /* ONLY for Features page banner */
+.image-head-wrapper {
+    width: 100vw;
+    min-height: 320px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* break out of container only here */
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+}
+
+  </style>
+  <body>
+    <button class="fixed-booking-btn" onclick="showBookingPopup()">
+      <span class="booking-icon">
+        <i class="fa fa-calendar"></i>
+      </span>
+      <span class="booking-btn-text">Book Your Stay</span>
+    </button>
+    <!-- WhatsApp Floating Button -->
+    <a
+      href="https://wa.me/919385962331"
+      class="whatsapp-float"
+      target="_blank"
+      aria-label="Chat on WhatsApp"
+    >
+      <i class="fa fa-whatsapp"></i>
+    </a>
+
+    <div class="booking-popup-overlay" id="bookingPopup">
+      <div class="booking-popup-box">
+        <span class="booking-close-btn" onclick="hideBookingPopup()">×</span>
+
+        <!-- FORM -->
+        <form
+          class="booking-popup-form"
+          id="bookingPopupForm"
+          onsubmit="handleBookingSubmit(event)"
+        >
+          <h3 class="book-head">
+            Booking <span style="color: #ff4157">Request</span>
+          </h3>
+          <p class="book-des">
+            Share your details and we’ll take care of the rest
+          </p>
+
+          <input type="text" placeholder="Full Name" required />
+          <input type="tel" placeholder="Phone Number" required />
+          <input type="email" placeholder="Email Address" required />
+
+          <div class="date-row">
+            <input type="date" required />
+            <input type="date" required />
+          </div>
+
+          <select required>
+            <option value="">Select Room Type</option>
+            <option>Single Room</option>
+            <option>Double Room</option>
+            <option>Home Stay (Hall + Bedroom)</option>
+          </select>
+
+          <textarea placeholder="Special Requests (Optional)"></textarea>
+
+          <button type="submit">Submit Booking</button>
+        </form>
+
+        <!-- SUCCESS MESSAGE -->
+        <div class="booking-success-message" id="bookingPopupSuccess">
+          <div class="success-icon">✓</div>
+          <h3>Booking Request Received</h3>
+          <p>
+            Thank you for your booking request.<br />
+            Our team will contact you shortly with availability and details.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="page">
+      <!---header top---->
+      <div class="top-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+              <div class="social-grid">
+                <ul class="list-unstyled text-right">
+                  <li>
+                    <a><i class="fa fa-facebook"></i></a>
+                  </li>
+                  <li>
+                    <a><i class="fa fa-twitter"></i></a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/in/amirtham-holiday-home-abb8253a2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                      ><i class="fa fa-linkedin"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.instagram.com/amirtham_holiday_home/?utm_source=ig_web_button_share_sheet"
+                      ><i class="fa fa-instagram"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--header--->
+      <header class="header-container">
+        <div class="container">
+          <div class="top-row">
+            <div class="row">
+              <div class="col-md-2 col-sm-6 col-xs-6">
+                <div id="logo">
+                  <!--<a href="index.html"><img src="images/logo.png" alt="logo"></a>-->
+                  <a href="index.html"
+                    ><span>Amirtham</span><br />Holiday Home</a
+                  >
+                </div>
+              </div>
+              <div class="col-sm-6 visible-sm">
+                <div class="text-right">
+                  <button type="button" class="book-now-btn">Book Now</button>
+                </div>
+              </div>
+              <div class="col-md-8 col-sm-12 col-xs-12 remove-padd">
+                <nav class="navbar navbar-default">
+                  <div class="navbar-header page-scroll">
+                    <button
+                      data-target=".navbar-ex1-collapse"
+                      data-toggle="collapse"
+                      class="navbar-toggle"
+                      type="button"
+                    >
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                  </div>
+                  <div
+                    class="collapse navigation navbar-collapse navbar-ex1-collapse remove-space"
+                  >
+                    <ul class="list-unstyled nav1 cl-effect-10">
+                      <li>
+                        <a data-hover="Home" href="index.html"
+                          ><span>Home</span></a
+                        >
+                      </li>
+                      <li>
+                        <a data-hover="About" href="about.html"
+                          ><span>About</span></a
+                        >
+                      </li>
+                      <li>
+                        <a data-hover="Rooms" href="rooms.html"
+                          ><span>Rooms</span></a
+                        >
+                      </li>
+                      <li>
+                        <a data-hover="Gallery" href="gallery.html"
+                          ><span>Gallery</span></a
+                        >
+                      </li>
+                      <li>
+                        <a data-hover="Experience" href="dinning.html"
+                          ><span>Experience</span></a
+                        >
+                      </li>
+                      <li>
+                        <a data-hover="Features" class="active"
+                          ><span>Features</span></a
+                        >
+                      </li>
+                      <li>
+                        <a data-hover="Contact Us" href="contact.html"
+                          ><span>contact Us</span></a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+              <div class="col-md-2 col-sm-4 col-xs-12 hidden-sm">
+                <div class="text-right">
+                  <button
+                    type="button"
+                    class="book-now-btn"
+                    onclick="showBookingPopup()"
+                  >
+                    Book Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!--end-->
+      <section
+        class="image-head-wrapper"
+        style="background-image: url('images/My_banner.jpg')"
+      >
+        <div class="inner-wrapper">
+          <h1 data-aos="fade-up">Features</h1>
+        </div>
+      </section>
+      <div class="clearfix"></div>
+
+      <!-- scroll -->
+      <section class="section__container explore__container" id="explore">
+        <div class="explore__content">
+          <h2 class="section__header" id="text">
+            Explore hidden<br />gems & popular<br />attractions
+          </h2>
+        </div>
+        <div class="explore__wrapper">
+          <div class="explore__wrapper-inner">
+            <img
+              src="https://media.istockphoto.com/id/1384661820/photo/the-small-island-at-the-most-southern-tip-of-sub-indian-continent-gunya-kumari.jpg?s=612x612&w=0&k=20&c=Y8vrXcoPHac-lj4PCHcL6A3j4DmchAS0buEoMoWik34="
+              alt="explore"
+            />
+            <img
+              src="https://media.istockphoto.com/id/498112231/photo/thiruvalluvar-statues-kanyakumari.jpg?s=612x612&w=0&k=20&c=sgWLULj-5hMrSPXVSLOSbwbabPqSHBe1F1U4tKC1fFA="
+              alt="explore"
+            />
+            <img
+              src="https://th.bing.com/th/id/OIP.mVnvdiJXK3Oyy7h679b48gHaEe?w=267&h=180&c=7&pcl=1b1a19&r=0&o=5&dpr=1.5&pid=1.7"
+              alt="explore"
+            />
+            <img
+              src="https://i0.wp.com/www.zingbus.com/blog/wp-content/uploads/2022/06/Thirparappu-falls-1-1.jpg?resize=1024%2C597&ssl=1"
+              alt="explore"
+            />
+          </div>
+        </div>
+      </section>
+      <section class="resort-overview-block">
+        <div class="container">
+          <div class="row">
+            <div
+              class="col-md-6 col-sm-12 col-xs-12 remove-padd-right"
+              data-aos="fade-right"
+            >
+              <div class="side-A">
+                <div class="product-thumb">
+                  <div class="image">
+                    <a href="single-blog.html">
+                      <img
+                        alt="image"
+                        class="img-responsive"
+                        src="images/category1.png"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="side-B">
+                <div class="product-desc-side">
+                  <h3><a href="single-blog.html">Room Accommodation</a></h3>
+                  <p>
+                    The lodge provides comfortable and well-maintained rooms
+                    suitable for both short and long stays, ensuring a pleasant
+                    experience for every guest.
+                  </p>
+                  <div class="links">
+                    <span>Single • Double • Family</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div
+              class="col-md-6 col-sm-12 col-xs-12 remove-padd-left"
+              data-aos="fade-left"
+            >
+              <div class="side-A">
+                <div class="product-thumb">
+                  <div class="image">
+                    <a>
+                      <img
+                        src="https://i.pinimg.com/736x/e1/f5/55/e1f555e0abf0996ecfd47fdf8cc3b6ba.jpg"
+                        class="img-responsive"
+                        alt="image"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="side-B">
+                <div class="product-desc-side">
+                  <h3><a href="single-blog.html">Front Desk Service</a></h3>
+                  <p>
+                    Front desk assistance is available for check-in, check-out,
+                    and general enquiries to ensure a smooth and comfortable
+                    stay.
+                  </p>
+                  <div class="links">
+                    <span>24-hour Support</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="clear"></div>
+            <div class="col-md-12 offspace-45"></div>
+
+            <div
+              class="col-md-6 col-sm-12 col-xs-12 remove-padd-right"
+              data-aos="fade-left"
+            >
+              <div class="side-A">
+                <div class="product-desc-side">
+                  <h3><a href="single-blog.html">Room Maintenance</a></h3>
+                  <p>
+                    Rooms are cleaned regularly and properly maintained to
+                    ensure comfort and meet basic hygiene standards for all
+                    guests.
+                  </p>
+                  <div class="links">
+                    <span>Daily Cleaning</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="side-B">
+                <div class="product-thumb">
+                  <div class="image txt-rgt">
+                    <a class="arrow-left">
+                      <img
+                        alt="image"
+                        class="img-responsive"
+                        src="https://i.pinimg.com/736x/27/9c/fa/279cfa62995f16880fb77aec033165a6.jpg"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div
+              class="col-md-6 col-sm-12 col-xs-12 remove-padd-left"
+              data-aos="fade-right"
+            >
+              <div class="side-A">
+                <div class="product-desc-side">
+                  <h3><a href="single-blog.html">Location Access</a></h3>
+                  <p>
+                    The lodge is conveniently located with easy access to
+                    transport, shops, and nearby facilities for guests'
+                    convenience.
+                  </p>
+                  <div class="links">
+                    <span>Main Road Access</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="side-B">
+                <div class="product-thumb txt-rgt">
+                  <div class="image">
+                    <a class="arrow-left">
+                      <img
+                        alt="image"
+                        class="img-responsive"
+                        src="https://i.pinimg.com/736x/61/dc/38/61dc38d13b39209ce7f8e6f55b9d1937.jpg"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </section>
+
+      <!---footer--->
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12 width-set-50">
+              <div class="footer-details">
+                <h4>Get in touch</h4>
+                <ul class="list-unstyled footer-contact-list">
+                  <li>
+                    <i class="fa fa-map-marker fa-lg"></i>
+                    <p>South Kundal,Kanyakumari</p>
+                  </li>
+                                    <li>
+                                        <i class="fa fa-phone fa-lg"></i>
+                                        <p><a href="tel:+04652-247920"> 04652-247920 <br>9442439829</a></p>
+                                    </li>
+                  <li>
+                    <i class="fa fa-envelope-o fa-lg"></i>
+                    <p>
+                      <a href="mailto:demo@info.com">
+                        info@amrithamHolidayHome.com</a
+                      >
+                    </p>
+                  </li>
+                </ul>
+                <div class="footer-social-icon">
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                  <a
+                    href="https://www.linkedin.com/in/amirtham-holiday-home-abb8253a2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                    ><i class="fa fa-linkedin"></i
+                  ></a>
+                  <a
+                    href="https://www.instagram.com/amirtham_holiday_home/?utm_source=ig_web_button_share_sheet"
+                    ><i class="fa fa-instagram"></i
+                  ></a>
+                  <!-- <a href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#"><i class="fa fa-youtube-play"></i></a> -->
+                </div>
+                <div class="input-group" id="subscribe">
+                  <input
+                    type="text"
+                    class="form-control subscribe-box"
+                    value=""
+                    name="subscribe"
+                    placeholder="BOOK NOW"
+                    disabled
+                  />
+                  <span class="input-group-btn">
+                                                       <a href="mailto:info@amrithamHolidayHome.com">
+                                    <button type="button" class="btn subscribe-button">
+                                        <i class="fa fa-paper-plane fa-lg"></i>
+                                    </button>
+                                    </a>
+
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 width-50 width-set-50">
+              <div class="footer-details">
+                <h4>explore</h4>
+                <ul class="list-unstyled footer-links">
+                  <li class="active"><a>Home</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="rooms.html">Rooms</a></li>
+                  <li><a href="gallery.html">Gallery</a></li>
+                  <li><a href="dinning.html">Experience</a></li>
+                  <li><a href="news.html">Features</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12">
+              <div class="footer-details">
+                <h4>Now On Instagram</h4>
+                <div class="row">
+                  <div class="instagram-images">
+                    <div id="instafeed"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="copyright">
+            &copy; 2026 Amirtham Holiday Home. All rights reserved.
+            <!-- .<a>Amritham Holiday Home</a> -->
+          </div>
+        </div>
+      </footer>
+
+      <!--back to top--->
+      <a
+        style="display: none"
+        href="javascript:void(0);"
+        class="scrollTop back-to-top"
+        id="back-to-top"
+      >
+        <span><i aria-hidden="true" class="fa fa-angle-up fa-lg"></i></span>
+        <span>Top</span>
+      </a>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 900,
+        easing: "ease-in-out",
+        once: true,
+      });
+    </script>
+  </body>
+</html>

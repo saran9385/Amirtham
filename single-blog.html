@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* Floating Book Button */
+.floating-book-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #ff4157;
+    color: #fff;
+    padding: 14px 22px;
+    border-radius: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.floating-book-btn i {
+    margin-right: 8px;
+}
+
+.floating-book-btn:hover {
+    background: #2d220f;
+}
+
+/* Overlay */
+.booking-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 9998;
+}
+
+/* Popup Box */
+.booking-popup {
+    background: #fff;
+    max-width: 450px;
+    margin: 60px auto;
+    padding: 30px;
+    border-radius: 12px;
+    position: relative;
+}
+
+/* Close Button */
+.close-booking {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* Success Message */
+.booking-success {
+    display: none;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+.booking-success i {
+    font-size: 46px;
+    color: #28a745;
+    margin-bottom: 15px;
+}
+
+</style>
+<body>
+    <!-- Floating Book Now Button -->
+<div class="floating-book-btn" onclick="openBookingForm()">
+    <i class="fa fa-calendar"></i> Book Now
+</div>
+
+<!-- Booking Popup -->
+<div class="booking-overlay" id="bookingOverlay">
+    <div class="booking-popup">
+        <span class="close-booking" onclick="closeBookingForm()">&times;</span>
+
+        <h3>Book Your Stay</h3>
+
+        <form id="bookingForm" onsubmit="submitBooking(event)">
+            <input type="text" class="form-control" placeholder="Full Name" required>
+            <input type="tel" class="form-control" placeholder="Phone Number" required>
+            <input type="email" class="form-control" placeholder="Email Address" required>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="date" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <input type="date" class="form-control" required>
+                </div>
+            </div>
+
+            <select class="form-control" required>
+                <option value="">Select Room Type</option>
+                <option>Standard Room</option>
+                <option>Deluxe Room</option>
+                <option>Family Suite</option>
+            </select>
+
+            <textarea class="form-control" placeholder="Special Requests"></textarea>
+
+            <button type="submit" class="submit-btn">Confirm Booking</button>
+        </form>
+
+        <!-- Success Message -->
+        <div id="bookingSuccess" class="booking-success">
+            <i class="fa fa-check-circle"></i>
+            <h4>Thank you for your booking request.</h4>
+            <p>
+                Our staff will contact you shortly with further details and room availability.
+            </p>
+        </div>
+    </div>
+</div>
+<script>
+function openBookingForm() {
+    document.getElementById("bookingOverlay").style.display = "block";
+}
+
+function closeBookingForm() {
+    document.getElementById("bookingOverlay").style.display = "none";
+}
+
+function submitBooking(event) {
+    event.preventDefault();
+
+    document.getElementById("bookingForm").style.display = "none";
+    document.getElementById("bookingSuccess").style.display = "block";
+
+    setTimeout(() => {
+        closeBookingForm();
+        document.getElementById("bookingForm").reset();
+        document.getElementById("bookingForm").style.display = "block";
+        document.getElementById("bookingSuccess").style.display = "none";
+    }, 4000);
+}
+</script>
+
+</body>
+</html>

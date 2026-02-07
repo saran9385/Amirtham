@@ -1,0 +1,617 @@
+<!--Template Name: vacayhome
+File Name: single-blog.html
+Author Name: ThemeVault
+Author URI: http://www.themevault.net/
+License URI: http://www.themevault.net/license/-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/icons/Brow.png" />
+    <title>AmirthamHolidayHome | Experience</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="font-awesome/css/font-awesome.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="fonts/antonio-exotic/stylesheet.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/lightbox.min.css" />
+    <link href="css/responsive.css" rel="stylesheet" />
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script
+      src="js/lightbox-plus-jquery.min.js"
+      type="text/javascript"
+    ></script>
+    <script src="js/instafeed.min.js" type="text/javascript"></script>
+    <script src="js/custom.js" type="text/javascript"></script>
+
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <button class="fixed-booking-btn" onclick="showBookingPopup()">
+      <span class="booking-icon">
+        <i class="fa fa-calendar"></i>
+      </span>
+      <span class="booking-btn-text">Book Your Stay</span>
+    </button>
+    <!-- WhatsApp Floating Button -->
+    <a
+      href="https://wa.me/919385962331"
+      class="whatsapp-float"
+      target="_blank"
+      aria-label="Chat on WhatsApp"
+    >
+      <i class="fa fa-whatsapp"></i>
+    </a>
+
+    <div class="booking-popup-overlay" id="bookingPopup">
+      <div class="booking-popup-box">
+        <span class="booking-close-btn" onclick="hideBookingPopup()">×</span>
+
+        <!-- FORM -->
+        <form
+          class="booking-popup-form"
+          id="bookingPopupForm"
+          onsubmit="handleBookingSubmit(event)"
+        >
+          <h3 class="book-head">
+            Booking <span style="color: #ff4157">Request</span>
+          </h3>
+          <p class="book-des">
+            Share your details and we’ll take care of the rest
+          </p>
+
+          <input type="text" placeholder="Full Name" required />
+          <input type="tel" placeholder="Phone Number" required />
+          <input type="email" placeholder="Email Address" required />
+
+          <div class="date-row">
+            <input type="date" required />
+            <input type="date" required />
+          </div>
+
+          <select required>
+            <option value="">Select Room Type</option>
+            <option>Single Room</option>
+            <option>Double Room</option>
+            <option>Home Stay (Hall + Bedroom)</option>
+          </select>
+
+          <textarea placeholder="Special Requests (Optional)"></textarea>
+
+          <button type="submit">Submit Booking</button>
+        </form>
+
+        <!-- SUCCESS MESSAGE -->
+        <div class="booking-success-message" id="bookingPopupSuccess">
+          <div class="success-icon">✓</div>
+          <h3>Booking Request Received</h3>
+          <p>
+            Thank you for your booking request.<br />
+            Our team will contact you shortly with availability and details.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="page">
+      <!---header top---->
+      <div class="top-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+              <div class="social-grid">
+                <ul class="list-unstyled text-right">
+                  <li>
+                    <a><i class="fa fa-facebook"></i></a>
+                  </li>
+                  <li>
+                    <a><i class="fa fa-twitter"></i></a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/in/amirtham-holiday-home-abb8253a2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                      ><i class="fa fa-linkedin"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.instagram.com/amirtham_holiday_home/?utm_source=ig_web_button_share_sheet"
+                      ><i class="fa fa-instagram"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--header--->
+      <header class="header-container">
+        <div class="container">
+          <div class="top-row">
+            <div class="row">
+              <div class="col-md-2 col-sm-6 col-xs-6">
+                <div id="logo">
+                  <!--<a href="index.html"><img src="images/logo.png" alt="logo"></a>-->
+                  <a href="index.html"
+                    ><span>Amirtham</span><br />Holiday Home</a
+                  >
+                </div>
+              </div>
+              <div class="col-sm-6 visible-sm">
+                <div class="text-right">
+                  <button type="button" class="book-now-btn">Book Now</button>
+                </div>
+              </div>
+              <div class="col-md-8 col-sm-12 col-xs-12 remove-padd">
+                <nav class="navbar navbar-default">
+                  <div class="navbar-header page-scroll">
+                    <button
+                      data-target=".navbar-ex1-collapse"
+                      data-toggle="collapse"
+                      class="navbar-toggle"
+                      type="button"
+                    >
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                  </div>
+                  <div
+                    class="collapse navigation navbar-collapse navbar-ex1-collapse remove-space"
+                  >
+                    <ul class="list-unstyled nav1 cl-effect-10">
+                      <li>
+                        <a data-hover="Home" href="index.html"
+                          ><span>Home</span></a
+                        >
+                      </li>
+                      <li>
+                        <a data-hover="About" href="about.html"
+                          ><span>About</span></a
+                        >
+                      </li>
+                      <li>
+                        <a data-hover="Rooms" href="rooms.html"
+                          ><span>Rooms</span></a
+                        >
+                      </li>
+                      <li>
+                        <a data-hover="Gallery" href="gallery.html"
+                          ><span>Gallery</span></a
+                        >
+                      </li>
+                      <li>
+                        <a data-hover="Experience" class="active"
+                          ><span>Experience</span></a
+                        >
+                      </li>
+                      <li>
+                        <a data-hover="Features" href="news.html"
+                          ><span>Features</span></a
+                        >
+                      </li>
+                      <li>
+                        <a data-hover="Contact Us" href="contact.html"
+                          ><span>contact Us</span></a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+              <div class="col-md-2 col-sm-4 col-xs-12 hidden-sm">
+                <div class="text-right">
+                  <button
+                    type="button"
+                    class="book-now-btn"
+                    onclick="showBookingPopup()"
+                  >
+                    Book Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!--end-->
+      <section
+        class="image-head-wrapper"
+        style="background-image: url('images/banner5.jpg')"
+      >
+        <div class="inner-wrapper">
+          <h1 data-aos="fade-up">Experience</h1>
+        </div>
+      </section>
+      <div class="clearfix"></div>
+
+      <!--dinning-->
+      <section class="blog">
+        <div class="container">
+          <div class="row">
+            <!-- Main Blog Column -->
+            <div class="col-md-9 col-sm-8 col-xs-12">
+              <h2 class="blog-title-head small-heading">
+                Coastal Paradise Awaits
+              </h2>
+              <p class="user-info">
+                Experience the stunning beaches, hidden gems, and unforgettable
+                coastal views near <a>Amirtham Holiday Home</a>
+              </p>
+
+              <div class="blog-image-single margin-top-small">
+                <img
+                  src="images/banner2.png"
+                  class="img-responsive"
+                  alt="Lodge Exterior View"
+                />
+              </div>
+
+              <p class="blog-desc">
+                Our lodge offers a peaceful retreat surrounded by nature,
+                perfect for families, couples, and solo travelers. Enjoy cozy
+                rooms, scenic views, and warm hospitality that makes every stay
+                memorable.
+              </p>
+
+              <p class="blog-desc">
+                Guests can enjoy a variety of amenities including clean,
+                comfortable rooms, hearty meals, and personalized service. Front
+                desk assistance is available for check-in, check-out, and local
+                guidance.
+              </p>
+
+              <p class="blog-desc">
+                Experience local attractions, explore scenic surroundings, or
+                relax in our outdoor spaces. Whether visiting for a weekend
+                getaway or a longer stay, our lodge ensures a restful and
+                convenient experience.
+              </p>
+
+              <div class="clearfix"></div>
+
+              <!-- Comment Form -->
+              <!-- <div class="single-bottom comment-form">
+                    <h3>Leave your Comment</h3>
+                    <form action="#" method="post">
+                        <input type="text" class="form-control" name="Name" placeholder="Name" required="">
+                        <input type="email" class="form-control" name="Email" placeholder="Email" required>
+                        <textarea class="form-control" name="Message" placeholder="Message Here...." required></textarea>
+                        <input type="submit" class="submit-btn" value="Send">
+                    </form>
+                </div> -->
+            </div>
+
+            <!-- Sidebar Column -->
+            <aside class="col-md-3 col-sm-4 col-xs-12">
+              <!-- Categories -->
+              <div class="blog-list" data-aos="fade-left">
+                <h4>Topics</h4>
+                <ul>
+                  <li>
+                    <a
+                      href="javascript:void(0);"
+                      onclick="toggleMessage(this, 'Our lodge experience ensures comfort and relaxation from check-in to check-out. Learn insider tips to maximize your stay, discover hidden spots within the lodge, and enjoy amenities tailored to families, couples, and solo travelers.')"
+                    >
+                      <i class="fa fa-caret-right"></i> Lodge Experience
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="javascript:void(0);"
+                      onclick="toggleMessage(this, 'Dining at our lodge is a delight. From hearty breakfasts to fine dinners, explore seasonal menus, local specialties, and chef recommendations that make every meal memorable. Guests can also get tips for pairing dishes and drinks.')"
+                    >
+                      <i class="fa fa-caret-right"></i> Dining & Cuisine
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="javascript:void(0);"
+                      onclick="toggleMessage(this, 'Adventure and activities are available for all ages and preferences. Discover hiking trails, guided nature walks, indoor games, and other recreational options to create lasting memories during your stay.')"
+                    >
+                      <i class="fa fa-caret-right"></i> Adventure & Activities
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="javascript:void(0);"
+                      onclick="toggleMessage(this, 'Relaxation and wellness are key to a perfect getaway. Enjoy our spa, yoga sessions, meditation areas, or just unwind in peaceful outdoor spaces to recharge your mind and body.')"
+                    >
+                      <i class="fa fa-caret-right"></i> Wellness & Relaxation
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="javascript:void(0);"
+                      onclick="toggleMessage(this, 'Immerse yourself in local culture. Participate in festivals, explore local art, try traditional crafts, and enjoy culinary experiences that make your visit unique.')"
+                    >
+                      <i class="fa fa-caret-right"></i> Local Culture
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Featured Articles -->
+              <div class="blog-list" data-aos="fade-left">
+                <h4>Featured Articles</h4>
+                <ul>
+                  <li>
+                    <a
+                      href="javascript:void(0);"
+                      onclick="toggleMessage(this, 'Seaside Serenity: Immerse yourself in the calming sounds of the waves and gentle ocean breeze. Enjoy morning walks along the shore, relax in hammocks with a good book, or take a sunset cruise. Our lodge offers tips on the best beach spots, nearby cafes, and local hidden gems to make your coastal stay truly memorable.')"
+                    >
+                      <i class="fa fa-caret-right"></i> Seaside Serenity
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="javascript:void(0);"
+                      onclick="toggleMessage(this, 'Coastal Adventures: Discover the best seaside experiences near our lodge. Enjoy long walks along pristine sandy beaches, explore hidden coves, try paddleboarding or kayaking, and spot local marine life. Our team shares tips on safe swimming areas, the best tide times, and must-visit coastal viewpoints to make your beach stay unforgettable.')"
+                    >
+                      <i class="fa fa-caret-right"></i> Coastal Adventures
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="javascript:void(0);"
+                      onclick="toggleMessage(this, 'Local Festivals & Cultural Events: Discover traditional performances, craft fairs, and culinary experiences that enrich your visit. Learn how to participate and get insider tips for a unique experience.')"
+                    >
+                      <i class="fa fa-caret-right"></i> Festivals & Culture
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="javascript:void(0);"
+                      onclick="toggleMessage(this, 'Sunrise & Sunset Highlights in the Area: Discover the best spots along the coast to watch stunning sunrises and sunsets. Take morning walks on the beach to catch the golden sunrise, or enjoy evening views as the sky transforms into vibrant colors. Local tips include quiet spots, ideal photo locations, and nearby viewpoints that make these natural spectacles unforgettable.')"
+                    >
+                      <i class="fa fa-caret-right"></i> Sunrise & Sunset Spots
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="javascript:void(0);"
+                      onclick="toggleMessage(this, 'Wellness Tips for Guests: How to relax, recharge, and rejuvenate during your stay. Includes spa suggestions, meditation areas, and other leisure activities to enhance your well-being.')"
+                    >
+                      <i class="fa fa-caret-right"></i> Wellness & Relaxation
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Popular Posts -->
+              <!-- Popular Posts / Must-See Experiences -->
+              <div class="blog-list" data-aos="fade-left">
+                <h4>Must-See Experiences</h4>
+                <ul>
+                  <li>
+                    <a
+                      href="javascript:void(0);"
+                      onclick="toggleMessage(this, 'Sunrise Spots: Discover the most breathtaking spots along the coast to watch the sunrise. Start your day with peaceful morning walks, capture amazing photos, and enjoy the calm of the early hours by the sea.')"
+                    >
+                      <i class="fa fa-caret-right"></i> Sunrise Spots
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="javascript:void(0);"
+                      onclick="toggleMessage(this, 'Sunset Views: Experience the magical coastal sunsets in the area. Our guide highlights the best viewpoints, timing, and quiet spots to fully enjoy this natural spectacle.')"
+                    >
+                      <i class="fa fa-caret-right"></i> Sunset Views
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="javascript:void(0);"
+                      onclick="toggleMessage(this, 'Beach Activities: From swimming and sunbathing to paddleboarding and beach games, explore the variety of fun activities available along the shoreline for all ages.')"
+                    >
+                      <i class="fa fa-caret-right"></i> Beach Activities
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="javascript:void(0);"
+                      onclick="toggleMessage(this, 'Coastal Trails & Walks: Enjoy scenic walks along the coast, explore hidden coves, and discover peaceful paths perfect for a morning or evening stroll.')"
+                    >
+                      <i class="fa fa-caret-right"></i> Coastal Trails & Walks
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="javascript:void(0);"
+                      onclick="toggleMessage(this, 'Local Attractions: Visit nearby landmarks, cultural spots, and hidden gems. Find out about must-see attractions, secret beaches, and fun experiences in the area.')"
+                    >
+                      <i class="fa fa-caret-right"></i> Local Attractions
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </div>
+
+        <!-- Smooth Slide CSS -->
+        <style>
+          .small-heading {
+            font-size: 28px; /* adjust as needed */
+            font-weight: 600; /* optional: lighter than default */
+          }
+          .click-message {
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            padding: 0 8px;
+            margin-top: 0;
+            background: #f9f9f9;
+            border-radius: 5px;
+            font-style: italic;
+            font-size: 14px;
+            line-height: 1.5em;
+            transition: all 0.5s ease;
+          }
+          .click-message.open {
+            max-height: 500px; /* larger to fit long content */
+            opacity: 1;
+            padding: 10px 8px;
+            margin-top: 5px;
+          }
+        </style>
+
+        <!-- Smooth Accordion JS -->
+        <script>
+          function toggleMessage(element, message) {
+            const parentLi = element.parentNode;
+
+            // Close all other messages
+            document.querySelectorAll(".click-message").forEach((msg) => {
+              if (msg.parentNode !== parentLi) {
+                msg.classList.remove("open");
+              }
+            });
+
+            // Check if message exists
+            let msgDiv = parentLi.querySelector(".click-message");
+
+            if (!msgDiv) {
+              msgDiv = document.createElement("div");
+              msgDiv.className = "click-message";
+              msgDiv.innerText = message;
+              parentLi.appendChild(msgDiv);
+              // Force reflow
+              void msgDiv.offsetWidth;
+              msgDiv.classList.add("open");
+            } else {
+              msgDiv.classList.toggle("open");
+            }
+          }
+        </script>
+      </section>
+
+      <!--end-->
+      <!---footer--->
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12 width-set-50">
+              <div class="footer-details">
+                <h4>Get in touch</h4>
+                <ul class="list-unstyled footer-contact-list">
+                  <li>
+                    <i class="fa fa-map-marker fa-lg"></i>
+                    <p>South Kundal,Kanyakumari</p>
+                  </li>
+                                    <li>
+                                        <i class="fa fa-phone fa-lg"></i>
+                                        <p><a href="tel:+04652-247920"> 04652-247920 <br>9442439829</a></p>
+                                    </li>
+                  <li>
+                    <i class="fa fa-envelope-o fa-lg"></i>
+                    <p>
+                      <a href="mailto:demo@info.com">
+                        info@amrithamHolidayHome.com</a
+                      >
+                    </p>
+                  </li>
+                </ul>
+                <div class="footer-social-icon">
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                  <a
+                    href="https://www.linkedin.com/in/amirtham-holiday-home-abb8253a2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                    ><i class="fa fa-linkedin"></i
+                  ></a>
+                  <a
+                    href="https://www.instagram.com/amirtham_holiday_home/?utm_source=ig_web_button_share_sheet"
+                    ><i class="fa fa-instagram"></i
+                  ></a>
+                  <!-- <a href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#"><i class="fa fa-youtube-play"></i></a> -->
+                </div>
+                <div class="input-group" id="subscribe">
+                  <input
+                    type="text"
+                    class="form-control subscribe-box"
+                    value=""
+                    name="subscribe"
+                    placeholder="BOOK NOW"
+                    disabled
+                  />
+                  <span class="input-group-btn">
+                                                       <a href="mailto:info@amrithamHolidayHome.com">
+                                    <button type="button" class="btn subscribe-button">
+                                        <i class="fa fa-paper-plane fa-lg"></i>
+                                    </button>
+                                    </a>
+
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 width-50 width-set-50">
+              <div class="footer-details">
+                <h4>explore</h4>
+                <ul class="list-unstyled footer-links">
+                  <li class="active"><a>Home</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="rooms.html">Rooms</a></li>
+                  <li><a href="gallery.html">Gallery</a></li>
+                  <li><a href="dinning.html">Experience</a></li>
+                  <li><a href="news.html">Features</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12">
+              <div class="footer-details">
+                <h4>Now On Instagram</h4>
+                <div class="row">
+                  <div class="instagram-images">
+                    <div id="instafeed"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="copyright">
+            &copy; 2026 Amirtham Holiday Home. All rights reserved.
+            <!-- .<a>Amritham Holiday Home</a> -->
+          </div>
+        </div>
+      </footer>
+      <!--back to top--->
+      <a
+        style="display: none"
+        href="javascript:void(0);"
+        class="scrollTop back-to-top"
+        id="back-to-top"
+      >
+        <span><i aria-hidden="true" class="fa fa-angle-up fa-lg"></i></span>
+        <span>Top</span>
+      </a>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 900,
+        easing: "ease-in-out",
+        once: true,
+      });
+    </script>
+  </body>
+</html>

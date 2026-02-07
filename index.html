@@ -1,0 +1,681 @@
+<!--Template Name: vacayhome
+File Name: home.html
+Author Name: ThemeVault
+Author URI: http://www.themevault.net/
+License URI: http://www.themevault.net/license/-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="images/icons/Brow.png"/>
+        <title>AmirthamHolidayHome | Home</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!-- Custom styles for this template -->
+        <link href="css/style.css" rel="stylesheet">
+        <link href="fonts/antonio-exotic/stylesheet.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/lightbox.min.css">
+        <link href="css/responsive.css" rel="stylesheet">
+        <script src="js/jquery.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="js/lightbox-plus-jquery.min.js" type="text/javascript"></script>
+        <script src="js/instafeed.min.js" type="text/javascript"></script>
+        <script src="js/custom.js" type="text/javascript"></script>
+
+        <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    </head>
+    <style>
+        .carousel .item img,video {
+    filter: brightness(70%);   /* darkens image only */
+}
+
+    </style>
+    <body>
+            <button class="fixed-booking-btn" onclick="showBookingPopup()">
+      <span class="booking-icon">
+        <i class="fa fa-calendar"></i>
+      </span>
+      <span class="booking-btn-text">Book Your Stay</span>
+    </button>
+<!-- WhatsApp Floating Button -->
+<a
+  href="https://wa.me/919385962331"
+  class="whatsapp-float"
+  target="_blank"
+  aria-label="Chat on WhatsApp"
+>
+  <i class="fa fa-whatsapp"></i>
+</a>
+
+    <div class="booking-popup-overlay" id="bookingPopup">
+      <div class="booking-popup-box">
+        <span class="booking-close-btn" onclick="hideBookingPopup()">×</span>
+
+        <!-- FORM -->
+      <form class="booking-popup-form" id="bookingPopupForm" onsubmit="handleBookingSubmit(event)">
+  <h3 class="book-head">Booking <span style="color: #ff4157">Request</span></h3>
+  <p class="book-des">Share your details and we’ll take care of the rest</p>
+
+  <input type="text" name="name" placeholder="Full Name" required />
+  <input type="tel" name="phone" placeholder="Phone Number" required />
+  <input type="email" name="email" placeholder="Email Address" required />
+
+  <div class="date-row">
+    <input type="date" name="checkin" required />
+    <input type="date" name="checkout" required />
+  </div>
+
+<select name="room_type" required>
+  <option value="">Select Room Type</option>
+  <option value="Single Room">Single Room</option>
+  <option value="Double Room">Double Room</option>
+  <option value="Home Stay (Hall + Bedroom)">Home Stay (Hall + Bedroom)</option>
+</select>
+
+  <textarea name="requests" placeholder="Special Requests (Optional)"></textarea>
+
+  <button type="submit">Submit Booking</button>
+</form>
+
+        <!-- SUCCESS MESSAGE -->
+        <div class="booking-success-message" id="bookingPopupSuccess">
+          <div class="success-icon">✓</div>
+          <h3>Booking Request Received</h3>
+          <p>
+            Thank you for your booking request.<br />
+            Our team will contact you shortly with availability and details.
+          </p>
+        </div>
+      </div>
+    </div>
+<script>
+async function handleBookingSubmit(e) {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+
+  try {
+    const response = await fetch('http://localhost:5000/send_booking', {
+      method: 'POST',
+      body: formData
+    });
+
+    const result = await response.json();
+
+    if(result.status === 'sent'){
+      // Hide the form
+      e.target.style.display = 'none';
+
+      // Show the success message div
+      const successDiv = document.getElementById('bookingPopupSuccess');
+      successDiv.style.display = 'block';
+    } else {
+      alert('Error sending booking.');
+    }
+  } catch (err) {
+    console.error(err);
+    alert('Error connecting to server.');
+  }
+}
+</script>
+
+
+        <div id="page">
+            <!---header top---->
+            <div class="top-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!--                            <a href="#"> </a>
+                                                        <div class="info-block"><i class="fa fa-map"></i>701 Old York Drive Richmond USA.</div>-->
+                        </div>
+                        <div class="col-md-6">
+                            <div class="social-grid">
+                                <ul class="list-unstyled text-right">
+                                    <li><a><i class="fa fa-facebook"></i></a></li>
+                                    <li><a><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/in/amirtham-holiday-home-abb8253a2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="https://www.instagram.com/amirtham_holiday_home/?utm_source=ig_web_button_share_sheet"><i class="fa fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--header--->
+            <header class="header-container">
+                <div class="container">
+                    <div class="top-row">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-6 col-xs-6">
+                                <div id="logo">
+                                    <!--<a href="index.html"><img src="images/logo.png" alt="logo"></a>-->
+                                    <a href="index.html"><span>Amirtham</span><br>Holiday Home</a>
+                                </div>                       
+                            </div>
+                            <div class="col-sm-6 visible-sm">
+                                <div class="text-right"><button type="button" class="book-now-btn">Book Now</button></div>
+                            </div>
+                            <div class="col-md-8 col-sm-12 col-xs-12 remove-padd">
+                                <nav class="navbar navbar-default">
+                                    <div class="navbar-header page-scroll">
+                                        <button data-target=".navbar-ex1-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+
+                                    </div>
+                                    <div class="collapse navigation navbar-collapse navbar-ex1-collapse remove-space">
+                                        <ul class="list-unstyled nav1 cl-effect-10">
+                                            <li><a  data-hover="Home" class="active"><span>Home</span></a></li>
+                                            <li><a data-hover="About"  href="about.html"><span>About</span></a></li>
+                                            <li><a data-hover="Rooms"  href="rooms.html"><span>Rooms</span></a></li>
+                                            <li><a data-hover="Gallery"  href="gallery.html"><span>Gallery</span></a></li>
+                                            <li><a data-hover="Experience" href="dinning.html"><span>Experience</span></a></li>
+                                            <li><a data-hover="Features" href="news.html"><span>Features</span></a></li>
+                                            <li><a data-hover="Contact Us" href="contact.html"><span>contact Us</span></a></li>
+                                        </ul>
+
+                                    </div>
+                                </nav>
+                            </div>
+                            <div class="col-md-2  col-sm-4 col-xs-12 hidden-sm">
+                                <div class="text-right"><button type="button" class="book-now-btn" onclick="showBookingPopup()">Book Now</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+
+            <!--end-->
+         <div id="myCarousel1" class="carousel slide" data-ride="carousel"> 
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+      <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel1" data-slide-to="1"></li>
+      <li data-target="#myCarousel1" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+      <div class="item active">
+          <video autoplay muted loop style="width:100%; height:500px; object-fit: cover;">
+              <source src="./static/images/IMG_3452.MP4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+          <div class="carousel-caption">
+              <h1>Amirtham<br>Holiday Home</h1>
+          </div>
+      </div>
+
+      <div class="item">
+          <img src="https://i.pinimg.com/1200x/11/dc/e3/11dce3bd5ccc87950d43a9c58c18018b.jpg" style="width:100%; height: 500px" alt="First slide">
+          <div class="carousel-caption">
+              <h1 data-aos="fade-up">Amirtham<br>Holiday Home</h1>
+          </div>
+      </div>
+
+      <div class="item">
+          <img src="https://i.pinimg.com/1200x/34/e8/46/34e846e8514709ea35326923f3efd74f.jpg" style="width:100%; height: 500px" alt="Third slide">
+          <div class="carousel-caption">
+              <h1>Amirtham<br>Holiday Home</h1>
+          </div>
+      </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#myCarousel1" data-slide="prev"> 
+      <img src="images/icons/left-arrow.png" onmouseover="this.src='images/icons/left-arrow-hover.png'" onmouseout="this.src='images/icons/left-arrow.png'" alt="left">
+  </a>
+  <a class="right carousel-control" href="#myCarousel1" data-slide="next">
+      <img src="images/icons/right-arrow.png" onmouseover="this.src='images/icons/right-arrow-hover.png'" onmouseout="this.src='images/icons/right-arrow.png'" alt="right">
+  </a>
+</div>
+
+            <div class="clearfix"></div>
+
+            <!--service block--->
+            <section class="service-block" data-aos="fade-right">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-6 width-50">
+                            <div class="service-details text-center">
+                                <div class="service-image">
+                                    <img alt="image" class="img-responsive" src="images/icons/wifi.png">
+                                </div>
+                                <h4><a>free wifi</a></h4>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-6 width-50">
+                            <div class="service-details text-center">
+                                <div class="service-image">
+                                    <img alt="image" class="img-responsive" src="images/icons/key.png">
+                                </div>
+                                <h4><a>room service</a></h4>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-6 mt-25">
+                            <div class="service-details text-center">
+                                <div class="service-image">
+                                    <img alt="image" class="img-responsive" src="images/icons/car.png">
+                                </div>
+                                <h4><a>free parking</a></h4>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-6 mt-25">
+                            <div class="service-details text-center">
+                                <div class="service-image">
+                                    <img alt="image" class="img-responsive" src="images/icons/user.png">
+                                </div>
+                                <h4><a>customer support</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--gallery block--->
+            <section class="gallery-block gallery-front" data-aos="fade-up">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="gallery-image">
+                                <img class="img-responsive" src="images/Gallery/IMG_3077.png">
+                                <div class="overlay">
+                                    <a class="info pop example-image-link img-responsive" href="images/Gallery/IMG_3077.png" data-lightbox="example-1"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                    <p><a>Single Room</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="gallery-image">
+                                <img class="img-responsive" src="images/Gallery/IMG_3069.png">
+                                <div class="overlay">
+                                    <a class="info pop example-image-link img-responsive" href="images/Gallery/IMG_3069.png" data-lightbox="example-1"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                    <p><a>Double Room</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="gallery-image">
+                                <img class="img-responsive" src="images/Gallery/IMG_3061.png">
+                                <div class="overlay">
+                                    <a class="info pop example-image-link img-responsive" href="images/Gallery/IMG_3061.png" data-lightbox="example-1"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                    <p><a>Family Room</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="gallery-image">
+                                <img class="img-responsive" src="images/Gallery/IMG_3070.png">
+                                <div class="overlay">
+                                    <a class="info pop example-image-link img-responsive" href="images/Gallery/IMG_3070.png" data-lightbox="example-1"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                    <p><a>Environment</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--offer block-->
+            <section class="vacation-offer-block">
+                <div class="vacation-offer-bgbanner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-5 col-sm-6 col-xs-12">
+                                <div class="vacation-offer-details">
+                                    <h1>Your vacation Awaits</h1>
+                                    <!-- <h4>Lorem ipsum dolor sit amet, conse ctetuer adipiscing elit.</h4> -->
+                                     <h4>For bookings and enquiries, get in touch with us.</h4>
+                                    <!-- <button type="button" class="btn btn-default">Choose a package</button> -->
+                                     <a href="tel:+04652-247920" class="btn btn-default">Call Us Today</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End-->
+
+            <!----resort-overview--->
+         <section class="resort-overview-block">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6 col-sm-12 col-xs-12 remove-padd-right" data-aos="fade-right">
+                <div class="side-A">
+                    <div class="product-thumb">
+                        <div class="image">
+                            <a>
+                                <img alt="image" class="img-responsive" src="images/category1.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="side-B">
+                    <div class="product-desc-side">
+                        <h3><a>Room Accommodation</a></h3>
+                        <p>
+                                The lodge provides comfortable and well-maintained rooms
+    suitable for both short and long stays, ensuring a pleasant experience for every guest.
+                        </p>
+                        <div class="links">
+                            <span>Single • Double • Family</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="col-md-6 col-sm-12 col-xs-12 remove-padd-left" data-aos="fade-left">
+                <div class="side-A">
+                    <div class="product-thumb">
+                        <div class="image">
+                            <a>
+                                <img src="https://i.pinimg.com/736x/e1/f5/55/e1f555e0abf0996ecfd47fdf8cc3b6ba.jpg" class="img-responsive" alt="image">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="side-B">
+                    <div class="product-desc-side">
+                        <h3><a>Front Desk Service</a></h3>
+                        <p>
+           Front desk assistance is available for check-in, check-out,
+    and general enquiries to ensure a smooth and comfortable stay.
+                        </p>
+                        <div class="links">
+                            <span>24-hour Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+            <div class="col-md-12 offspace-45"></div>
+
+            <div class="col-md-6 col-sm-12 col-xs-12 remove-padd-right" data-aos="fade-left">
+                <div class="side-A">
+                    <div class="product-desc-side">
+                        <h3><a>Room Maintenance</a></h3>
+                        <p>
+    Rooms are cleaned regularly and properly maintained
+    to ensure comfort and meet basic hygiene standards for all guests.
+                        </p>
+                        <div class="links">
+                            <span>Daily Cleaning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="side-B">
+                    <div class="product-thumb">
+                        <div class="image txt-rgt">
+                            <a class="arrow-left">
+                                <img alt="image" class="img-responsive" src="https://i.pinimg.com/736x/27/9c/fa/279cfa62995f16880fb77aec033165a6.jpg">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="col-md-6 col-sm-12 col-xs-12 remove-padd-left" data-aos="fade-right">
+                <div class="side-A">
+                    <div class="product-desc-side">
+                        <h3><a>Location Access</a></h3>
+                        <p>
+                  The lodge is conveniently located with easy access
+    to transport, shops, and nearby facilities for guests' convenience.
+                        </p>
+                        <div class="links">
+                            <span>Main Road Access</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="side-B">
+                    <div class="product-thumb txt-rgt">
+                        <div class="image">
+                            <a class="arrow-left">
+                                <img alt="image" class="img-responsive" src="https://i.pinimg.com/736x/61/dc/38/61dc38d13b39209ce7f8e6f55b9d1937.jpg">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+</section>
+            <!-----blog slider----->
+            <!--blog trainer block-->
+            <section class="blog-block-slider">
+                <div class="blog-block-slider-fix-image">
+                    <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+                        <div class="container">
+                            <!-- Wrapper for slides -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+                                <li data-target="#myCarousel2" data-slide-to="1"></li>
+                                <li data-target="#myCarousel2" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <div class="blog-box">
+<p>We had a very pleasant stay with clean and comfortable rooms. The atmosphere was calm and relaxing, and the staff was friendly and helpful throughout our visit. Everything was well maintained and organized, making our experience smooth and enjoyable.</p>
+
+
+                                    </div>
+                                    <div class="blog-view-box">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <img src="images/client-removebg-preview.png" style="width: 70px;" class="media-object">
+                                            </div>
+                                            <div class="media-body">
+                                                <h3 class="media-heading blog-title">USER FEEDBACK</h3>
+                                                <h5 class="blog-rev">Satisfied Customer</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="blog-box">
+<p>The stay was comfortable and peaceful with neat rooms and a pleasant environment. The staff provided good service and were always supportive whenever needed during our stay. Overall, the experience was satisfying, well organized, and we felt relaxed and happy throughout our visit.</p>
+
+
+
+                                    </div>
+                                    <div class="blog-view-box">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <img src="images/client-removebg-preview.png" style="width: 70px;" class="media-object">
+                                            </div>
+                                            <div class="media-body">
+                                                <h3 class="media-heading blog-title">USER FEEDBACK</h3>
+                                                <h5 class="blog-rev">Satisfied Customer</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="blog-box">
+               <p>We had a very pleasant stay with clean and comfortable rooms. The atmosphere was calm and relaxing, and the staff was friendly and helpful throughout our visit. Everything was well maintained and organized, making our experience smooth and enjoyable.</p>
+
+                                    </div>
+                                    <div class="blog-view-box">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <img src="images/client-removebg-preview.png" style="width: 70px;" class="media-object">
+                                            </div>
+                                            <div class="media-body">
+                                                <h3 class="media-heading blog-title">USER FEEDBACK</h3>
+                                                <h5 class="blog-rev">Satisfied Customer</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </section>
+
+            <!---blog block--->
+           <section class="blog-block">
+    <div class="container">
+        <div class="row offspace-45" data-aos="fade-right">
+            <div class="view-set-block">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="event-blog-image">
+                        <img alt="image" class="img-responsive" src="images/blog1.png">
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 side-in-image">
+                    <div class="event-blog-details">
+                        <h4><a href="https://www.instagram.com/amirtham_holiday_home/?utm_source=ig_web_button_share_sheet">Comfortable Rooms & Peaceful Stay</a></h4>
+                        <h5>Post By Admin 
+                            <a><i aria-hidden="true" class="fa fa-heart-o fa-lg"></i> Likes</a>
+                            <a><i aria-hidden="true" class="fa fa-comment-o fa-lg"></i> Comments</a>
+                        </h5>
+                        <p>Our lodge offers clean, spacious, and well-maintained rooms designed to give you a comfortable and relaxing stay. Each room is carefully prepared to ensure a peaceful environment after a long day of travel or work.</p>
+                        <p>Surrounded by calm surroundings and a friendly atmosphere, guests can enjoy a stress-free experience. Whether you are visiting for leisure or business, our rooms provide the perfect balance of comfort and simplicity.</p>
+                        <a class="btn btn-default" href="https://www.instagram.com/amirtham_holiday_home/?utm_source=ig_web_button_share_sheet">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row offspace-45" data-aos="fade-left">
+            <div class="view-set-block">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="event-blog-image">
+                        <img alt="image" class="img-responsive" src="https://i.pinimg.com/1200x/ef/55/2c/ef552c446059a2798defc65dc6c23d92.jpg">
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 side-in-image">
+                    <div class="event-blog-details">
+                        <h4><a href="https://www.instagram.com/amirtham_holiday_home/?utm_source=ig_web_button_share_sheet">Friendly Service & Great Location</a></h4>
+                        <h5>Post By Admin 
+                            <a><i aria-hidden="true" class="fa fa-heart-o fa-lg"></i> Likes</a>
+                            <a><i aria-hidden="true" class="fa fa-comment-o fa-lg"></i> Comments</a>
+                        </h5>
+                        <p>We believe good service makes a great stay. Our staff is polite, helpful, and always ready to assist guests with their needs, ensuring a smooth and pleasant experience from check-in to check-out.</p>
+                        <p>Located in a convenient and peaceful area, our lodge is easily accessible and ideal for families, travelers, and professionals. Guests can enjoy comfort, safety, and hospitality all in one place.</p>
+                        <a class="btn btn-default" href="https://www.instagram.com/amirtham_holiday_home/?utm_source=ig_web_button_share_sheet">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+            <!---footer--->
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 col-xs-12 width-set-50">
+                            <div class="footer-details">
+                                <h4>Get in touch</h4>
+                                <ul class="list-unstyled footer-contact-list">
+                                    <li>
+                                        <i class="fa fa-map-marker fa-lg"></i>
+                                        <p>South Kundal,Kanyakumari</p>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-phone fa-lg"></i>
+                                        <p><a href="tel:+04652-247920"> 04652-247920 <br>9442439829</a></p>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-envelope-o fa-lg"></i>
+                                        <p><a href="mailto:demo@info.com"> info@amrithamHolidayHome.com</a></p>
+                                    </li>
+                                </ul>
+                                <div class="footer-social-icon">
+                                    <a><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.linkedin.com/in/amirtham-holiday-home-abb8253a2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fa fa-linkedin"></i></a>                           
+                                    <a href="https://www.instagram.com/amirtham_holiday_home/?utm_source=ig_web_button_share_sheet"><i class="fa fa-instagram"></i></a>
+                                    <!-- <a href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#"><i class="fa fa-youtube-play"></i></a> -->
+                                </div>
+                                <div class="input-group" id="subscribe">
+                                    <input type="text" class="form-control subscribe-box" value="" name="subscribe" placeholder="BOOK NOW" disabled>
+                                    <span class="input-group-btn">
+                                    <a href="mailto:info@amrithamHolidayHome.com">
+                                    <button type="button" class="btn subscribe-button">
+                                        <i class="fa fa-paper-plane fa-lg"></i>
+                                    </button>
+                                    </a>
+
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12 width-50 width-set-50">
+                            <div class="footer-details">
+                                <h4>explore</h4>
+                                <ul class="list-unstyled footer-links">
+                                    <li class="active"><a>Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="rooms.html">Rooms</a></li>
+                                    <li><a href="gallery.html">Gallery</a></li>
+                                    <li><a href="dinning.html">Experience</a></li>
+                                    <li> <a href="news.html">Features</a></li>
+                                    <li> <a href="contact.html">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <div class="footer-details">
+                                <h4>Now On Instagram</h4>
+                                <div class="row">
+                                    <div class="instagram-images">
+                                        <div id="instafeed"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="copyright">
+                        &copy; 2026 Amirtham Holiday Home. All rights reserved.
+                        <!-- .<a>Amritham Holiday Home</a> -->
+                    </div>
+
+                </div>
+            </footer>
+
+            <!--back to top--->
+            <a style="display: none;" href="javascript:void(0);" class="scrollTop back-to-top" id="back-to-top">
+                <span><i aria-hidden="true" class="fa fa-angle-up fa-lg"></i></span>
+                <span>Top</span>
+            </a>
+
+        </div>
+
+
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 900,
+    easing: 'ease-in-out',
+    once: true
+  });
+</script>
+
+    </body>
+</html>

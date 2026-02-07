@@ -1,0 +1,820 @@
+<!--Template Name: vacayhome
+File Name: contact.html
+Author Name: ThemeVault
+Author URI: http://www.themevault.net/
+License URI: http://www.themevault.net/license/-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/icons/Brow.png" />
+    <title>AmirthamHolidayHome | Contact</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="font-awesome/css/font-awesome.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="fonts/antonio-exotic/stylesheet.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/lightbox.min.css" />
+    <link href="css/responsive.css" rel="stylesheet" />
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script
+      src="js/lightbox-plus-jquery.min.js"
+      type="text/javascript"
+    ></script>
+    <script src="js/instafeed.min.js" type="text/javascript"></script>
+    <script src="js/custom.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  </head>
+  <style>
+    /* =========================================
+   CONTACT PAGE – PREMIUM REFINED DESIGN
+========================================= */
+
+    /* ---------- GLOBAL FIX ---------- */
+    .contact-block,
+    .contact-highlights,
+    .contact-premium-note,
+    .contact-promise,
+    .contact-cta,
+    .offspace-70 {
+      margin: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    /* ---------- HERO TITLE ---------- */
+    .image-head-wrapper {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .image-head-wrapper::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .image-head-wrapper .inner-wrapper {
+      position: relative;
+      z-index: 2;
+    }
+
+    .image-head-wrapper h1 {
+      color: #fff;
+      font-size: 42px;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+
+    /* ---------- CONTACT MAIN SECTION ---------- */
+    .contact-block {
+      padding: 80px 0;
+      background: #ffffff;
+    }
+
+    .contact-left-block h3,
+    .contact-form h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #2d220f;
+    }
+
+    /* .contact-left-block h3 span,
+.contact-form h3 span {
+    color: #AE9548;
+} */
+
+    .contact-left-block p {
+      font-size: 15px;
+      line-height: 28px;
+      color: #555;
+      margin-bottom: 12px;
+    }
+
+    .contact-left-block p i {
+      margin-left: 10px;
+    }
+
+    .contact-left-block a {
+      color: #555;
+    }
+
+    .contact-left-block a:hover {
+      color: #ae9548;
+      text-decoration: none;
+    }
+
+    /* ---------- CONTACT FORM ---------- */
+    .contact-form {
+      background: #fafafa;
+      padding: 35px;
+      border-radius: 10px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+    }
+
+    .contact-form .form-control {
+      height: 48px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .contact-form textarea.form-control {
+      height: 120px;
+      resize: none;
+    }
+
+    .submit-btn {
+      width: 100%;
+      height: 48px;
+      background: #ff4157;
+      border: none;
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background: #2d220f;
+    }
+
+    /* ---------- CONTACT HIGHLIGHTS ---------- */
+    .contact-highlights {
+      padding: 70px 0;
+      background: #f6f6f6;
+    }
+
+    .highlight-box {
+      background: #ffffff;
+      padding: 35px 25px;
+      text-align: center;
+      border-radius: 14px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      transition: all 0.35s ease;
+      height: 100%;
+    }
+
+    .highlight-box:hover {
+      transform: translateY(-6px);
+    }
+
+    .highlight-box i {
+      font-size: 40px;
+      color: #ff4157;
+      margin-bottom: 15px;
+    }
+
+    .highlight-box h4 {
+      font-size: 18px;
+      color: #2d220f;
+      margin-bottom: 10px;
+    }
+
+    .highlight-box p {
+      font-size: 14px;
+      color: #555;
+      line-height: 24px;
+    }
+
+    /* ---------- WHY CHOOSE US ---------- */
+    .contact-premium-note {
+      padding: 70px 0;
+      text-align: center;
+      background: #ffffff;
+    }
+
+    .contact-premium-note h3 {
+      font-size: 30px;
+      color: #2d220f;
+      margin-bottom: 15px;
+    }
+
+    .contact-premium-note h3 span {
+      color: #ff4157;
+    }
+
+    .contact-premium-note p {
+      max-width: 720px;
+      margin: auto;
+      font-size: 15px;
+      line-height: 30px;
+      color: #555;
+    }
+
+    /* ---------- OUR PROMISE ---------- */
+    .contact-promise {
+      padding: 70px 0;
+      background: #f9f9f9;
+    }
+
+    .contact-promise h3 {
+      font-size: 28px;
+      color: #2d220f;
+      margin-bottom: 15px;
+    }
+
+    .contact-promise h3 span {
+      color: #ff4157;
+    }
+
+    .contact-promise p {
+      font-size: 15px;
+      line-height: 28px;
+      color: #555;
+    }
+
+    .promise-list {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+    }
+
+    .promise-list ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .promise-list li {
+      font-size: 15px;
+      color: #444;
+      padding: 10px 0;
+    }
+
+    .promise-list i {
+      color: #ff4157;
+      margin-right: 10px;
+    }
+
+    /* ---------- CTA ---------- */
+    .contact-cta {
+      padding: 70px 0;
+      background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+        url("images/banner4.jpg") center/cover no-repeat;
+      text-align: center;
+    }
+
+    .contact-cta h3 {
+      font-size: 32px;
+      color: #ffffff;
+      margin-bottom: 15px;
+    }
+
+    .contact-cta h3 span {
+      color: #ff4157;
+    }
+
+    .contact-cta p {
+      max-width: 650px;
+      margin: auto;
+      font-size: 15px;
+      line-height: 28px;
+      color: #eaeaea;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 14px 42px;
+      background: #ff4157;
+      color: #ffffff;
+      font-size: 14px;
+      border-radius: 30px;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background: #ffffff;
+      color: #2d220f;
+      text-decoration: none;
+    }
+
+    /* ---------- MAP ---------- */
+    .offspace-70 {
+      padding: 40px 0;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 767px) {
+      .contact-block {
+        padding: 60px 15px;
+      }
+
+      .contact-form {
+        margin-top: 40px;
+      }
+
+      .contact-highlights {
+        padding: 50px 15px;
+      }
+
+      .highlight-box {
+        margin-bottom: 25px;
+      }
+
+      .contact-cta h3 {
+        font-size: 26px;
+      }
+    }
+  </style>
+  <body>
+    <button class="fixed-booking-btn" onclick="showBookingPopup()">
+      <span class="booking-icon">
+        <i class="fa fa-calendar"></i>
+      </span>
+      <span class="booking-btn-text">Book Your Stay</span>
+    </button>
+    <!-- WhatsApp Floating Button -->
+    <a
+      href="https://wa.me/919385962331"
+      class="whatsapp-float"
+      target="_blank"
+      aria-label="Chat on WhatsApp"
+    >
+      <i class="fa fa-whatsapp"></i>
+    </a>
+
+    <div class="booking-popup-overlay" id="bookingPopup">
+      <div class="booking-popup-box">
+        <span class="booking-close-btn" onclick="hideBookingPopup()">×</span>
+
+        <!-- FORM -->
+        <form
+          class="booking-popup-form"
+          id="bookingPopupForm"
+          onsubmit="handleBookingSubmit(event)"
+        >
+          <h3 class="book-head">
+            Booking <span style="color: #ff4157">Request</span>
+          </h3>
+          <p class="book-des">
+            Share your details and we’ll take care of the rest
+          </p>
+
+          <input type="text" placeholder="Full Name" required />
+          <input type="tel" placeholder="Phone Number" required />
+          <input type="email" placeholder="Email Address" required />
+
+          <div class="date-row">
+            <input type="date" required />
+            <input type="date" required />
+          </div>
+
+          <select required>
+            <option value="">Select Room Type</option>
+            <option>Single Room</option>
+            <option>Double Room</option>
+            <option>Home Stay (Hall + Bedroom)</option>
+          </select>
+
+          <textarea placeholder="Special Requests (Optional)"></textarea>
+
+          <button type="submit">Submit Booking</button>
+        </form>
+
+        <!-- SUCCESS MESSAGE -->
+        <div class="booking-success-message" id="bookingPopupSuccess">
+          <div class="success-icon">✓</div>
+          <h3>Booking Request Received</h3>
+          <p>
+            Thank you for your booking request.<br />
+            Our team will contact you shortly with availability and details.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="page">
+      <!---header top---->
+      <div class="top-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+              <div class="social-grid">
+                <ul class="list-unstyled text-right">
+                  <li>
+                    <a><i class="fa fa-facebook"></i></a>
+                  </li>
+                  <li>
+                    <a><i class="fa fa-twitter"></i></a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/in/amirtham-holiday-home-abb8253a2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                      ><i class="fa fa-linkedin"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.instagram.com/amirtham_holiday_home/?utm_source=ig_web_button_share_sheet"
+                      ><i class="fa fa-instagram"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--header--->
+      <header class="header-container">
+        <div class="container">
+          <div class="top-row">
+            <div class="row">
+              <div class="col-md-2 col-sm-6 col-xs-6">
+                <div id="logo">
+                  <!--<a href="index.html"><img src="images/logo.png" alt="logo"></a>-->
+                  <a href="index.html"
+                    ><span>Amirtham</span><br />Holiday Home</a
+                  >
+                </div>
+              </div>
+              <div class="col-sm-6 visible-sm">
+                <div class="text-right">
+                  <button type="button" class="book-now-btn">Book Now</button>
+                </div>
+              </div>
+              <div class="col-md-8 col-sm-12 col-xs-12 remove-padd">
+                <nav class="navbar navbar-default">
+                  <div class="navbar-header page-scroll">
+                    <button
+                      data-target=".navbar-ex1-collapse"
+                      data-toggle="collapse"
+                      class="navbar-toggle"
+                      type="button"
+                    >
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                  </div>
+                  <div
+                    class="collapse navigation navbar-collapse navbar-ex1-collapse remove-space"
+                  >
+                    <ul class="list-unstyled nav1 cl-effect-10">
+                      <li>
+                        <a data-hover="Home" href="index.html"
+                          ><span>Home</span></a
+                        >
+                      </li>
+                      <li>
+                        <a data-hover="About" href="about.html"
+                          ><span>About</span></a
+                        >
+                      </li>
+                      <li>
+                        <a data-hover="Rooms" href="rooms.html"
+                          ><span>Rooms</span></a
+                        >
+                      </li>
+                      <li>
+                        <a data-hover="Gallery" href="gallery.html"
+                          ><span>Gallery</span></a
+                        >
+                      </li>
+                      <li>
+                        <a data-hover="Experience" href="dinning.html"
+                          ><span>Experience</span></a
+                        >
+                      </li>
+                      <li>
+                        <a data-hover="Features" href="news.html"
+                          ><span>Features</span></a
+                        >
+                      </li>
+                      <li>
+                        <a data-hover="Contact Us" class="active"
+                          ><span>contact Us</span></a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+              <div class="col-md-2 col-sm-4 col-xs-12 hidden-sm">
+                <div class="text-right">
+                  <button
+                    type="button"
+                    onclick="showBookingPopup()"
+                    class="book-now-btn"
+                  >
+                    Book Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!--end-->
+      <section
+        class="image-head-wrapper"
+        style="background-image: url('images/banner4.jpg')"
+      >
+        <div class="inner-wrapper">
+          <h1 data-aos="fade-up">Contact Us</h1>
+        </div>
+      </section>
+      <div class="clearfix"></div>
+
+      <section class="contact-block">
+        <div class="container">
+          <div class="col-md-6 contact-left-block" data-aos="fade-right">
+            <h3><span>Contact </span>Us</h3>
+            <p class="text-left">
+              Connect with us for refined comfort and seamless hospitality. From
+              reservations to special requests, we ensure every detail of your
+              stay is handled with care.
+            </p>
+            <p class="text-right">
+              South Kundal,Kanyakumari <i class="fa fa-map-marker fa-lg"></i>
+            </p>
+            <p class="text-right">
+              <a href="tel:+1-202-555-0100"
+                >+91 9442439829 <i class="fa fa-phone fa-lg"></i
+              ></a>
+            </p>
+            <p class="text-right">
+              <a href="mailto:info@amrithamHolidayHome.com">
+                info@amrithamHolidayHome.com<i class="fa fa-envelope"></i
+              ></a>
+            </p>
+          </div>
+          <div class="col-md-6 contact-form" data-aos="fade-left">
+            <h3>Send a <span>Message</span></h3>
+            <form action="#" method="post">
+              <input
+                type="text"
+                class="form-control"
+                name="Name"
+                placeholder="Name"
+                required=""
+              />
+              <input
+                type="text"
+                class="form-control"
+                name="phone"
+                placeholder="Phone Number"
+                required=""
+              />
+              <input
+                type="email"
+                class="form-control"
+                name="Email"
+                placeholder="Email"
+                required=""
+              />
+              <textarea
+                class="form-control"
+                name="Message"
+                placeholder="Message Here...."
+                required=""
+              ></textarea>
+              <input type="submit" class="submit-btn" value="Submit" />
+            </form>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </section>
+      <!-- Premium Contact Highlights -->
+      <section class="contact-highlights" data-aos="fade-down">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 col-sm-6 highlight-box">
+              <i class="fa fa-clock-o"></i>
+              <h4>24/7 Assistance</h4>
+              <p>
+                Our team is available round the clock to assist you with
+                bookings, enquiries, and support.
+              </p>
+            </div>
+
+            <div class="col-md-4 col-sm-6 highlight-box">
+              <i class="fa fa-map-signs"></i>
+              <h4>Prime Location</h4>
+              <p>
+                Located in the heart of Kanyakumari, offering easy access to
+                beaches and local attractions.
+              </p>
+            </div>
+
+            <div class="col-md-4 col-sm-12 highlight-box">
+              <i class="fa fa-heart"></i>
+              <h4>Comfort with Care</h4>
+              <p>
+                Experience homely comfort blended with premium hospitality and
+                thoughtful service.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Contact Us -->
+      <section class="contact-premium-note">
+        <div class="container">
+          <h3>Why <span>Choose Us</span></h3>
+          <p>
+            At <strong>Amirtham Holiday Home</strong>, we believe hospitality is
+            about warmth, trust, and attention to detail. Every stay is crafted
+            to offer peace, privacy, and a sense of belonging.
+          </p>
+        </div>
+      </section>
+      <!-- Our Promise Section -->
+      <section class="contact-promise">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6" data-aos="fade-right">
+              <h3>Our <span>Promise</span></h3>
+              <p>
+                At Amirtham Holiday Home, every guest is welcomed like family.
+                We promise a peaceful stay, spotless rooms, and attentive
+                service that reflects the warmth of Kanyakumari hospitality.
+              </p>
+              <p>
+                Whether you are here for relaxation, devotion, or exploration,
+                we ensure comfort that feels timeless and sincere.
+              </p>
+            </div>
+            <div class="col-md-6 promise-list" data-aos="fade-left">
+              <ul>
+                <li>
+                  <i class="fa fa-check-circle"></i> Clean & well-maintained
+                  rooms
+                </li>
+                <li>
+                  <i class="fa fa-check-circle"></i> Calm and secure
+                  surroundings
+                </li>
+                <li>
+                  <i class="fa fa-check-circle"></i> Honest pricing & friendly
+                  support
+                </li>
+                <li>
+                  <i class="fa fa-check-circle"></i> Ideal for families &
+                  couples
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Plan Your Stay -->
+      <section class="contact-cta">
+        <div class="container text-center">
+          <h3>Plan Your <span>Stay With Us</span></h3>
+          <p>
+            Discover comfort, simplicity, and care at Amirtham Holiday Home.
+            Reach out today and let us help you plan a relaxing stay near
+            Kanyakumari.
+          </p>
+          <a href="tel:+919442439829" class="cta-btn"> Call Now </a>
+        </div>
+      </section>
+
+      <!---map--->
+      <section class="offspace-70">
+        <div class="map">
+          <div class="container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4693.5882048910735!2d77.5435554176677!3d8.093448566077845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04edd87531df39%3A0x582fcf277889e05d!2sAmirtham%20homestay!5e0!3m2!1sen!2sin!4v1767403508677!5m2!1sen!2sin"
+              frameborder="0"
+              style="border: 0; width: 100%; height: 400px"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+      <!---footer--->
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12 width-set-50">
+              <div class="footer-details">
+                <h4>Get in touch</h4>
+                <ul class="list-unstyled footer-contact-list">
+                  <li>
+                    <i class="fa fa-map-marker fa-lg"></i>
+                    <p>South Kundal,Kanyakumari</p>
+                  </li>
+                                    <li>
+                                        <i class="fa fa-phone fa-lg"></i>
+                                        <p><a href="tel:+04652-247920"> 04652-247920 <br>9442439829</a></p>
+                                    </li>
+                  <li>
+                    <i class="fa fa-envelope-o fa-lg"></i>
+                    <p>
+                      <a href="mailto:demo@info.com">
+                        info@amrithamHolidayHome.com</a
+                      >
+                    </p>
+                  </li>
+                </ul>
+                <div class="footer-social-icon">
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                  <a
+                    href="https://www.linkedin.com/in/amirtham-holiday-home-abb8253a2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                    ><i class="fa fa-linkedin"></i
+                  ></a>
+                  <a
+                    href="https://www.instagram.com/amirtham_holiday_home/?utm_source=ig_web_button_share_sheet"
+                    ><i class="fa fa-instagram"></i
+                  ></a>
+                  <!-- <a href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#"><i class="fa fa-youtube-play"></i></a> -->
+                </div>
+                <div class="input-group" id="subscribe">
+                  <input
+                    type="text"
+                    class="form-control subscribe-box"
+                    value=""
+                    name="subscribe"
+                    placeholder="BOOK NOW"
+                    disabled
+                  />
+                  <span class="input-group-btn">
+                                    <a href="mailto:info@amrithamHolidayHome.com">
+                                    <button type="button" class="btn subscribe-button">
+                                        <i class="fa fa-paper-plane fa-lg"></i>
+                                    </button>
+                                    </a>
+
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 width-50 width-set-50">
+              <div class="footer-details">
+                <h4>explore</h4>
+                <ul class="list-unstyled footer-links">
+                  <li class="active"><a>Home</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="rooms.html">Rooms</a></li>
+                  <li><a href="gallery.html">Gallery</a></li>
+                  <li><a href="dinning.html">Experience</a></li>
+                  <li><a href="news.html">Features</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12">
+              <div class="footer-details">
+                <h4>Now On Instagram</h4>
+                <div class="row">
+                  <div class="instagram-images">
+                    <div id="instafeed"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="copyright">
+            &copy; 2026 Amirtham Holiday Home. All rights reserved.
+            <!-- .<a>Amritham Holiday Home</a> -->
+          </div>
+        </div>
+      </footer>
+      <!--back to top--->
+      <a
+        style="display: none"
+        href="javascript:void(0);"
+        class="scrollTop back-to-top"
+        id="back-to-top"
+      >
+        <span><i aria-hidden="true" class="fa fa-angle-up fa-lg"></i></span>
+        <span>Top</span>
+      </a>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 900,
+        easing: "ease-in-out",
+        once: true,
+      });
+    </script>
+  </body>
+</html>
