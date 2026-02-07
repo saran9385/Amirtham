@@ -10,22 +10,24 @@ License URI: http://www.themevault.net/license/-->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="images/icons/Brow.png"/>
+        <!-- <link rel="icon" href="images/icons/Brow.png"/> -->
         <title>AmirthamHolidayHome | About</title>
 
-        <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-        <!-- Custom styles for this template -->
-        <link href="css/style.css" rel="stylesheet">
-        <link href="fonts/antonio-exotic/stylesheet.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/lightbox.min.css">
-        <link href="css/responsive.css" rel="stylesheet">
-        <script src="js/jquery.min.js" type="text/javascript"></script>
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="js/lightbox-plus-jquery.min.js" type="text/javascript"></script>
-        <script src="js/instafeed.min.js" type="text/javascript"></script>
-        <script src="js/custom.js" type="text/javascript"></script>
+ <link rel="icon" href="/static/images/icons/Brow.png"/>
+
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="/static/css/style.css" rel="stylesheet">
+<link href="/static/fonts/antonio-exotic/stylesheet.css" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/lightbox.min.css">
+<link href="/static/css/responsive.css" rel="stylesheet">
+
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/lightbox-plus-jquery.min.js"></script>
+<script src="/static/js/instafeed.min.js"></script>
+<script src="/static/js/custom.js"></script>
+
     </head>
     <style>
         /* ===== Signature Luxury Section ===== */
@@ -231,23 +233,36 @@ License URI: http://www.themevault.net/license/-->
             Share your details and we’ll take care of the rest
           </p>
 
-          <input type="text" placeholder="Full Name" required />
-          <input type="tel" placeholder="Phone Number" required />
-          <input type="email" placeholder="Email Address" required />
+          <input type="text" name="name" placeholder="Full Name" required />
+<input
+  type="tel"
+  name="phone"
+  class="form-control"
+  placeholder="Phone Number"
+  maxlength="10"
+  inputmode="numeric"
+  pattern="[6-9][0-9]{9}"
+  title="Check phone number"
+  oninput="this.value = this.value.replace(/[^0-9]/g,'')"
+  required
+/>
 
-          <div class="date-row">
-            <input type="date" required />
-            <input type="date" required />
-          </div>
+<input type="email" name="email" placeholder="Email Address" />
 
-          <select required>
-            <option value="">Select Room Type</option>
-            <option>Single Room</option>
-            <option>Double  Room</option>
-            <option>Home Stay (Hall + Bedroom)</option>
-          </select>
+<div class="date-row">
+  <input type="date" name="checkin" required />
+  <input type="date" name="checkout" required />
+</div>
 
-          <textarea placeholder="Special Requests (Optional)"></textarea>
+<select name="room_type" required>
+  <option value="">Select Room Type</option>
+  <option>Single Room</option>
+  <option>Double Room</option>
+  <option>Home Stay (Hall + Bedroom)</option>
+</select>
+
+<textarea name="requests" placeholder="Special Requests (Optional)"></textarea>
+
 
           <button type="submit">Submit Booking</button>
         </form>
@@ -290,7 +305,7 @@ License URI: http://www.themevault.net/license/-->
                             <div class="col-md-2 col-sm-6 col-xs-6">
                                 <div id="logo">
                                     <!--<a href="index.html"><img src="images/logo.png" alt="logo"></a>-->
-                                    <a href="index.html"><span>Amirtham</span><br>Holiday Home</a>
+                                    <a href="/"><span>Amirtham</span><br>Holiday Home</a>
                                 </div>                       
                             </div>
                             <div class="col-sm-6 visible-sm">
@@ -309,13 +324,13 @@ License URI: http://www.themevault.net/license/-->
                                     </div>
                                     <div class="collapse navigation navbar-collapse navbar-ex1-collapse remove-space">
                                         <ul class="list-unstyled nav1 cl-effect-10">
-                                            <li><a data-hover="Home" href="index.html"><span>Home</span></a></li>
+                                            <li><a data-hover="Home" href="/"><span>Home</span></a></li>
                                             <li><a data-hover="About"  class="active"><span>About</span></a></li>
-                                            <li><a data-hover="Rooms" href="rooms.html"><span>Rooms</span></a></li>
-                                            <li><a data-hover="Gallery"  href="gallery.html"><span>Gallery</span></a></li>
-                                            <li><a data-hover="Experience" href="dinning.html"><span>Experience</span></a></li>
-                                            <li><a data-hover="Features" href="news.html"><span>Features</span></a></li>
-                                            <li><a data-hover="Contact Us" href="contact.html"><span>contact Us</span></a></li>
+                                            <li><a data-hover="Rooms" href="/rooms"><span>Rooms</span></a></li>
+                                            <li><a data-hover="Gallery"  href="/gallery"><span>Gallery</span></a></li>
+                                            <li><a data-hover="Experience" href="/experience"><span>Experience</span></a></li>
+                                            <li><a data-hover="Features" href="/news"><span>Features</span></a></li>
+                                            <li><a data-hover="Contact Us" href="/contact"><span>contact Us</span></a></li>
                                         </ul>
                                     </div>
                                 </nav>
@@ -330,7 +345,8 @@ License URI: http://www.themevault.net/license/-->
 
 
             <!--end-->
-            <section class="image-head-wrapper" style="background-image: url('images/banner3.jpg');">
+<section class="image-head-wrapper"
+ style="background-image: url('/static/images/banner3.jpg');">
                 <div class="inner-wrapper">
                     <h1 class="fade-up">About us</h1>
                 </div>
@@ -398,7 +414,7 @@ License URI: http://www.themevault.net/license/-->
 
             <div class="col-md-6 signature-right fade-right">
                 <div class="signature-image">
-                    <img src="images/gallery1.png" alt="Premium Resort Experience">
+                    <img src="/static/images/gallery1.png" alt="Premium Resort Experience">
                 </div>
             </div>
         </div>
@@ -489,13 +505,13 @@ License URI: http://www.themevault.net/license/-->
                             <div class="footer-details">
                                 <h4>explore</h4>
                                 <ul class="list-unstyled footer-links">
-                                    <li class="active"><a>Home</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="rooms.html">Rooms</a></li>
-                                    <li><a href="gallery.html">Gallery</a></li>
-                                    <li><a href="dinning.html">Experience</a></li>
-                                    <li> <a href="news.html">Features</a></li>
-                                    <li> <a href="contact.html">Contact</a></li>
+                                    <li><a>Home</a></li>
+                                    <li class="active"><a href="/about">About</a></li>
+                                    <li><a href="/rooms">Rooms</a></li>
+                                    <li><a href="/gallery">Gallery</a></li>
+                                    <li><a href="/experience">Experience</a></li>
+                                    <li> <a href="/news">Features</a></li>
+                                    <li> <a href="/contact">Contact</a></li>
                                 </ul>
                             </div>
                         </div>

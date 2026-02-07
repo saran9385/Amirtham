@@ -61,6 +61,26 @@ function hideBookingPopup() {
 function handleBookingSubmit(event) {
     event.preventDefault();
 
-    document.getElementById("bookingPopupForm").style.display = "none";
-    document.getElementById("bookingPopupSuccess").style.display = "block";
+    const form = document.getElementById("bookingPopupForm");
+    const formData = new FormData(form);
+
+    fetch("/send_booking", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === "sent") {
+            form.style.display = "none";
+            document.getElementById("bookingPopupSuccess").style.display = "block";
+        } else {
+            alert("Booking failed. Please try again.");
+        }
+    })
+    .catch(err => {
+        console.error(err);
+        alert("Server error. Please try again later.");
+    });
 }
+
+
