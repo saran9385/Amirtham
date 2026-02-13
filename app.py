@@ -22,7 +22,11 @@ IMAGE_URL = "https://image2url.com/r2/default/images/1770401631954-0248fe4e-fd50
 # --------------------
 # PAGE ROUTES
 # --------------------
+from flask import send_from_directory
 
+@app.route('/googlef56c3dc3840ab5c8.html')
+def google_verification():
+    return send_from_directory('.', 'googlef56c3dc3840ab5c8.html')
 @app.route("/")
 def home():
     return render_template("index.html")
