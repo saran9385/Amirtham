@@ -27,6 +27,10 @@ from flask import send_from_directory
 @app.route('/googlef56c3dc3840ab5c8.html')
 def google_verification():
     return send_from_directory('.', 'googlef56c3dc3840ab5c8.html')
+@app.route('/robots.txt')
+def robots():
+    return send_from_directory('.', 'robots.txt')
+
 @app.route("/")
 def home():
     return render_template("index.html")
